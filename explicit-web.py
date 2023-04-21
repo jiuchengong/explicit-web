@@ -27,7 +27,7 @@ _NAMES = [
 
 
 class CatsVsDogs(datasets.GeneratorBasedBuilder):
-    VERSION = datasets.Version("23.4.12")
+    VERSION = datasets.Version("23.4.16")
 
     BUILDER_CONFIGS = [
         datasets.BuilderConfig(name = 'small'),

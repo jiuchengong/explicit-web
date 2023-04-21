@@ -35,6 +35,8 @@ def main(scheme:str = 'large', frac: float = 0.8):
     trainset.to_csv(scheme.with_suffix('.train.csv'), index=False)
 
     validset = dataset.drop(trainset.index)
+    vsz = validset.groupby('label').value_counts().min()
+    validset = validset.groupby('label').sample(n=vsz, replace=False)
     validset.to_csv(scheme.with_suffix('.valid.csv'), index=False)
     print(trainset.shape, validset.shape)
 
